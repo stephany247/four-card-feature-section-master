@@ -1,0 +1,219 @@
+/* 
+ 1. Use a more-intuitive box-sizing model.
+  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+      2. Remove default margin
+    */
+* {
+  margin: 0;
+
+  /* ### Primary */
+  --Red: hsl(0, 78%, 62%);
+  --Cyan: hsl(180, 62%, 55%);
+  --Orange: hsl(34, 97%, 64%);
+  --Blue: hsl(212, 86%, 64%);
+
+  /* ### Neutral */
+  --Very-Dark-Blue: hsl(234, 12%, 34%);
+  --Grayish-Blue: hsl(229, 6%, 66%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+}
+
+/*
+      Typographic tweaks!
+      3. Add accessible line-height
+      4. Improve text rendering
+    */
+body {
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--Very-Light-Gray);
+  color: var(--Grayish-Blue);
+  font-weight: 400;
+  flex-direction: column;
+  height: 100%;
+  /* overflow-x: hidden; */
+}
+
+/*
+      5. Improve media defaults
+    */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+      6. Remove built-in form typography styles
+    */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+      7. Avoid text overflows
+    */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+      8. Create a root stacking context
+    */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+main {
+  margin: 4rem 1.5rem;
+}
+
+header {
+  text-align: center;
+}
+
+header p {
+  max-width: 33ch;
+  margin: 0 auto;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--Very-Dark-Blue);
+}
+
+.first-heading {
+  font-weight: 200;
+}
+.second-heading {
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-weight: 600;
+  color: var(--Very-Dark-Blue);
+  margin-bottom: 0.325rem;
+}
+
+p {
+  font-size: 0.9rem;
+}
+
+/* Card styling */
+.card-grid {
+  margin: 4rem auto 0;
+}
+
+.card {
+  background-color: var(--Very-Light-Gray);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  text-align: left;
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual card colors */
+.card-1 {
+  border-top: 4px solid var(--Cyan);
+  grid-area: cyan;
+}
+.card-2 {
+  border-top: 4px solid var(--Red);
+  grid-area: red;
+}
+.card-3 {
+  border-top: 4px solid var(--Orange);
+  grid-area: orange;
+}
+.card-4 {
+  border-top: 4px solid var(--Blue);
+  grid-area: blue;
+}
+
+img {
+  padding: 2rem 0 0;
+  align-self: flex-end;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Responsive Design */
+@media (min-width: 35rem) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  header p {
+    max-width: 55ch;
+    margin: 0 auto;
+  }
+
+  .card-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-areas:
+      "cyan red"
+      "orange blue";
+    margin: 3rem auto 0;
+  }
+
+  .card {
+    max-width: 25rem;
+    margin: 0;
+  }
+}
+
+@media (min-width: 64rem) {
+
+  .card-grid {
+    display: grid;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem auto;
+    padding: 0 6rem;
+    grid-template-areas:
+      ". red ."
+      "cyan red blue"
+      "cyan orange blue"
+      ". orange .";
+  }
+}
